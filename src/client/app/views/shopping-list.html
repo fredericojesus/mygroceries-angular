@@ -1,0 +1,28 @@
+<form layout="row" layout-align="center" class="form-insert-item">
+  <md-input-container flex="50" md-no-float>
+    <input ng-model="vm.newItem" placeholder="Insert an item...">
+  </md-input-container>
+  <md-button class="md-raised md-primary" ng-click="vm.addItem()">Add</md-button>
+</form>
+
+<div layout="row" layout-align="center" style="margin-bottom: 20px">
+  <md-card flex="80" ng-if="vm.items.length || vm.itemsChecked.length">
+    <md-card-content>
+      <md-list style="padding: 0">
+        <md-list-item class="list-item" ng-repeat="item in vm.items">
+          <md-checkbox class="md-primary" ng-checked="false" ng-click="vm.checkItem(item)"></md-checkbox>
+          <p style="margin-top: 2px">{{ item | titleize }}</p>
+          <md-icon class="md-secondary" ng-click="vm.removeItem(item, vm.items)" aria-label="Chat" md-svg-icon="content:clear"></md-icon>
+        </md-list-item>
+      </md-list>
+      <md-divider ng-if="vm.items.length && vm.itemsChecked.length"></md-divider>
+      <md-list>
+        <md-list-item class="list-item" ng-repeat="itemChecked in vm.itemsChecked">
+          <md-checkbox class="md-primary" ng-checked="true" ng-click="vm.uncheckItem(itemChecked)"></md-checkbox>
+          <p style="margin-top: 2px">{{ itemChecked | titleize }}</p>
+          <md-icon class="md-secondary" ng-click="vm.removeItem(itemChecked, vm.itemsChecked)" aria-label="Chat" md-svg-icon="content:clear"></md-icon>
+        </md-list-item>
+      </md-list>
+    </md-card-content>
+  </md-card>
+</div>
