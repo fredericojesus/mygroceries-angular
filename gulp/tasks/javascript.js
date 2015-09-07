@@ -1,6 +1,7 @@
 'use strict';
 
 var config = require('../config');
+var handleErrors = require('../util/handleErrors');
 var gulp = require('gulp');
 var gulpif = require('gulp-if');
 var minifyHtml = require('gulp-minify-html');
@@ -18,6 +19,7 @@ gulp.task('js', function() {
     .pipe(gulpif(/\.html$/, minifyHtml({empty: true})))
     .pipe(gulpif(/\.html$/, templateCache()))
     .pipe(uglify({ mangle: false }))
+    .on('error', handleErrors)
     .pipe(concat('app.min.js'))
     .pipe(gulpif(!global.isProd, sourcemaps.write('.')))
     .pipe(gulp.dest(config.scripts.dest));
