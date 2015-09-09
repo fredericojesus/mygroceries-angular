@@ -1,4 +1,4 @@
-(function () {
+(function() {
   'use strict';
 
   angular.module('app', [
@@ -9,5 +9,5 @@
   ]);
 
   _.mixin(s.exports());
-  
+
 })();

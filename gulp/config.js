@@ -3,12 +3,12 @@
 module.exports = {
 
   'styles': {
-    'src' : 'src/client/styles/**/*.styl',
+    'src': 'src/client/styles/**/*.styl',
     'dest': 'dist'
   },
 
   'scripts': {
-    'src' : 'src/client/app/**/*.js',
+    'src': 'src/client/app/**/*.js',
     'dest': 'dist'
   },
 

@@ -1,4 +1,4 @@
-(function () {
+(function() {
   'use strict';
 
   angular
@@ -9,7 +9,7 @@
     var vm = this;
     vm.items = ['bread', 'apples', 'milk', 'cheese', 'eggs', 'beef', 'orange juice'];
     vm.itemsChecked = [];
-    vm.newItem = "";
+    vm.newItem = '';
 
     vm.addItem = addItem;
     vm.checkItem = checkItem;
@@ -18,8 +18,9 @@
     vm.removeItem = removeItem;
 
     function addItem() {
-      if (_.isBlank(vm.newItem))
-      return;
+      if (_.isBlank(vm.newItem)) {
+        return;
+      }
 
       if (vm.items.indexOf(vm.newItem.toLowerCase()) > -1 || vm.itemsChecked.indexOf(vm.newItem.toLowerCase()) > -1) {
         $mdToast.show({
@@ -28,7 +29,7 @@
         });
       } else {
         vm.items.unshift(vm.newItem.toLowerCase());
-        vm.newItem = "";
+        vm.newItem = '';
       }
     }
 
