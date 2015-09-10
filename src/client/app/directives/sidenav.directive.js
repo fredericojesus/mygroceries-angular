@@ -1,15 +1,15 @@
 (function() {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('app')
-    .directive('sidenav', sidenav);
+    angular
+        .module('app')
+        .directive('sidenav', sidenav);
 
-  function sidenav() {
-    return {
-      restrict: 'EA',
-      templateUrl: 'sidenav.html'
-    };
-  }
+    function sidenav() {
+        return {
+            restrict: 'EA',
+            templateUrl: 'sidenav.html'
+        };
+    }
 
 })();

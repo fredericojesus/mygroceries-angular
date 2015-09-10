@@ -5,10 +5,10 @@ var runSequence = require('run-sequence');
 
 gulp.task('prod', ['clean'], function(cb) {
 
-  cb = cb || function() {};
+    cb = cb || function() {};
 
-  global.isProd = true;
+    global.isProd = true;
 
-  runSequence(['lint', 'styles', 'js'], 'watch', cb);
+    runSequence(['lint', 'styles', 'js'], 'watch', cb);
 
 });

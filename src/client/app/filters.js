@@ -1,14 +1,14 @@
 (function() {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('app.filters', [])
-    .filter('titleize', titleize);
+    angular
+        .module('app.filters', [])
+        .filter('titleize', titleize);
 
-  function titleize() {
-    return function(input) {
-      return _.titleize(input);
-    };
-  }
+    function titleize() {
+        return function(input) {
+            return _.titleize(input);
+        };
+    }
 
 })();

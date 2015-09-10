@@ -1,13 +1,13 @@
 (function() {
-  'use strict';
+    'use strict';
 
-  angular.module('app', [
-    'app.filters',
-    'ngMaterial',
-    'ngMdIcons',
-    'templates'
-  ]);
+    angular.module('app', [
+        'app.filters',
+        'ngMaterial',
+        'ngMdIcons',
+        'templates'
+    ]);
 
-  _.mixin(s.exports());
+    _.mixin(s.exports());
 
 })();

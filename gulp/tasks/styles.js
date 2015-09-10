@@ -14,13 +14,13 @@ var autoprefixer = require('gulp-autoprefixer');
  * Stylus compilation
  */
 gulp.task('styles', function() {
-  return gulp.src(config.styles.src)
-    .pipe(gulpif(!global.isProd, sourcemaps.init()))
-    .pipe(stylus())
-    .pipe(autoprefixer('last 2 versions', '> 1%', 'ie 8'))
-    .on('error', handleErrors)
-    .pipe(concat('style.min.css'))
-    .pipe(minifyCSS())
-    .pipe(gulpif(!global.isProd, sourcemaps.write('.')))
-    .pipe(gulp.dest(config.styles.dest));
+    return gulp.src(config.styles.src)
+        .pipe(gulpif(!global.isProd, sourcemaps.init()))
+        .pipe(stylus())
+        .pipe(autoprefixer('last 2 versions', '> 1%', 'ie 8'))
+        .on('error', handleErrors)
+        .pipe(concat('style.min.css'))
+        .pipe(minifyCSS())
+        .pipe(gulpif(!global.isProd, sourcemaps.write('.')))
+        .pipe(gulp.dest(config.styles.dest));
 });

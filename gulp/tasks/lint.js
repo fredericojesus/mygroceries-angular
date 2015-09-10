@@ -8,7 +8,7 @@ var jshint = require('gulp-jshint');
  * JSLint/JSHint validation
  */
 gulp.task('lint', function() {
-  return gulp.src(config.scripts.src)
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'));
+    return gulp.src(config.scripts.src)
+        .pipe(jshint())
+        .pipe(jshint.reporter('jshint-stylish'));
 });
