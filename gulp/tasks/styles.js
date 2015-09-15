@@ -1,26 +1,35 @@
 'use strict';
 
-var config = require('../config');
-var handleErrors = require('../util/handleErrors');
 var gulp = require('gulp');
-var gulpif = require('gulp-if');
-var stylus = require('gulp-stylus');
-var concat = require('gulp-concat');
-var minifyCSS = require('gulp-minify-css');
-var sourcemaps = require('gulp-sourcemaps');
-var autoprefixer = require('gulp-autoprefixer');
+var config = require('../config')();
+var log = require('../util/log');
+var serve = require('../util/serve');
+var browserSync = require('browser-sync');
+
+var $ = require('gulp-load-plugins')({lazy: true});
 
 /**
- * Stylus compilation
+ * Compile stylus to css
+ * @return {Stream}
  */
-gulp.task('styles', function() {
-    return gulp.src(config.styles.src)
-        .pipe(gulpif(!global.isProd, sourcemaps.init()))
-        .pipe(stylus())
-        .pipe(autoprefixer('last 2 versions', '> 1%', 'ie 8'))
-        .on('error', handleErrors)
-        .pipe(concat('style.min.css'))
-        .pipe(minifyCSS())
-        .pipe(gulpif(!global.isProd, sourcemaps.write('.')))
-        .pipe(gulp.dest(config.styles.dest));
+gulp.task('styles', ['clean-styles'], function() {
+    log.message('Compiling Stylus --> CSS');
+
+    return gulp
+        .src(config.stylus)
+        //TODO it prints the error two times dunno why
+        .pipe($.plumber())
+        .pipe($.stylus())
+        .pipe($.autoprefixer({
+            browsers: ['last 2 version', '> 3%']
+        }))
+        .pipe(gulp.dest(config.temp));
+});
+
+/**
+ * Wactch stylus files in dev environment
+ */
+gulp.task('stylus-watcher', function () {
+    serve(true /*isDev*/);
+    gulp.watch([config.stylus], ['styles', browserSync.reload]);
 });

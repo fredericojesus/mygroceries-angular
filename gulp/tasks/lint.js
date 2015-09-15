@@ -1,14 +1,24 @@
 'use strict';
 
-var config = require('../config');
 var gulp = require('gulp');
-var jshint = require('gulp-jshint');
+var args = require('yargs').argv;
+var config = require('../config')();
+var log = require('../util/log');
+
+var $ = require('gulp-load-plugins')({lazy: true});
 
 /**
- * JSLint/JSHint validation
+ * Analyze source with JSHint and JSCS
+ * @return {Stream}
  */
 gulp.task('lint', function() {
-    return gulp.src(config.scripts.src)
-        .pipe(jshint())
-        .pipe(jshint.reporter('jshint-stylish'));
+    log.message('Analyzing source with JSHint and JSCS');
+
+    return gulp
+        .src(config.alljs)
+        .pipe($.if(args.verbose, $.print()))
+        .pipe($.jshint())
+        .pipe($.jshint.reporter('jshint-stylish', {verbose: true}))
+        // .pipe($.jshint.reporter('fail'))
+        .pipe($.jscs());
 });

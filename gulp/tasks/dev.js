@@ -1,14 +1,30 @@
 'use strict';
 
 var gulp = require('gulp');
-var runSequence = require('run-sequence');
+var config = require('../config')();
+var log = require('../util/log');
+var serve = require('../util/serve');
+var browserSync = require('browser-sync');
 
-gulp.task('dev', ['clean'], function(cb) {
+var $ = require('gulp-load-plugins')({lazy: true});
 
-    cb = cb || function() {};
+/**
+ * serve the dev environment and watch app files
+ */
+gulp.task('dev', ['lint', 'inject'], function() {
+    serve(true /*isDev*/);
 
-    global.isProd = false;
+    /**
+     * watch all app files except for index because
+     * index is being injected in case of new files are added or deleted
+     * (it would be an endless loop)
+     */
+    $.watch(config.watchFiles, function() {
+        gulp.start('lint', 'inject', browserSync.reload);
+    })
+    .on('change', log.fileEvent);
 
-    runSequence(['lint', 'styles', 'js'], 'watch', cb);
-
+    // gulp.watch(config.js, ['lint', browserSync.reload]);
+    // gulp.watch(config.stylus, ['styles', browserSync.reload]);
+    // gulp.watch([config.htmltemplates, config.index], browserSync.reload);
 });

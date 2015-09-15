@@ -22,7 +22,7 @@
 
   "disallowMultipleLineStrings": true,
   "disallowMixedSpacesAndTabs": true,
-  "disallowTrailingWhitespace": true,
+  "disallowTrailingWhitespace": "ignoreEmptyLines",
   "disallowSpaceAfterPrefixUnaryOperators": true,
   "disallowMultipleVarDecl": null,
 

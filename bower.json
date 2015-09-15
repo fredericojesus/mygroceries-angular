@@ -1,9 +1,8 @@
 {
   "name": "mygroceries-angular",
-  "version": "0.0.0",
-  "authors": [
-    "Frederico Jesus"
-  ],
+  "version": "0.0.1",
+  "description": "shopping list",
+  "authors": [],
   "license": "MIT",
   "ignore": [
     "**/.*",

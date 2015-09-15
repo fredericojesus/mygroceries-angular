@@ -8,7 +8,7 @@
     function sidenav() {
         return {
             restrict: 'EA',
-            templateUrl: 'sidenav.html'
+            templateUrl: 'app/views/sidenav.html'
         };
     }
 

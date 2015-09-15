@@ -1,38 +1,63 @@
 <!DOCTYPE html>
 <html ng-app="app">
+    <style>
+        /* This helps the ng-show/ng-hide animations start at the right place. */
+        /* Since Angular has this but needs to load, this gives us the class early. */
+        .ng-hide { display: none!important; }
+    </style>
+    <title>My Groceries</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <base href="/">
 
-<head>
-  <title>My Groceries</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
-  <link rel="stylesheet" href="dist/style.min.css">
-</head>
+    <!-- build:css styles/lib.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
 
-<body layout="row">
+    <!-- build:css styles/app.css -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/.tmp/animations.css">
+    <link rel="stylesheet" href="/.tmp/colors.css">
+    <link rel="stylesheet" href="/.tmp/icons.css">
+    <link rel="stylesheet" href="/.tmp/style.css">
+    <!-- endinject -->
+    <!-- endbuild -->
 
-  <!-- SIDENAV -->
-  <sidenav layout="row"></sidenav>
+    <body layout="row">
 
-  <!-- Will be ui-view -->
-  <site-content layout="column" layout-fill></site-content>
+        <!-- SIDENAV -->
+        <sidenav layout="row"></sidenav>
 
+        <!-- Will be ui-view -->
+        <site-content layout-fill layout="column"></site-content>
 
-  <!-- bower_components -->
-  <script src="bower_components/angular/angular.min.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-  <script src="bower_components/angular-aria/angular-aria.min.js"></script>
-  <script src="bower_components/angular-material/angular-material.min.js"></script>
-  <script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
-  <script src="bower_components/lodash/lodash.min.js"></script>
-  <script src="bower_components/underscore.string/dist/underscore.string.min.js"></script>
+        <!-- build:js js/lib.js -->
+        <!-- bower:js -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.js"></script>
+        <script src="bower_components/angular-material/angular-material.js"></script>
+        <script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+        <script src="bower_components/lodash/lodash.js"></script>
+        <script src="bower_components/underscore.string/dist/underscore.string.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
 
-  <!-- dist:js -->
-  <script src="dist/app.min.js"></script>
+        <!-- build:js js/app.js -->
+        <!-- inject:js -->
+        <script src="/src/app/app.module.js"></script>
+        <script src="/src/app/config.js"></script>
+        <script src="/src/app/filters.js"></script>
+        <script src="/src/app/directives/shopping-list.directive.js"></script>
+        <script src="/src/app/directives/sidenav.directive.js"></script>
+        <script src="/src/app/directives/site-content.directive.js"></script>
+        <script src="/src/app/controllers/shoppingList.controller.js"></script>
+        <script src="/.tmp/templates.js"></script>
+        <!-- endinject -->
+        <!-- endbuild -->
 
-  <!-- <div class="alert alert-info">
-  <strong>First!</strong> You're the first one using this app. Make sure to add some items to the list!
-</div> -->
-</body>
-
+    </body>
 </html>

@@ -8,7 +8,7 @@
     function shoppingList() {
         return {
             restrict: 'EA',
-            templateUrl: 'shopping-list.html',
+            templateUrl: 'app/views/shopping-list.html',
             controller: 'ShoppingListController',
             controllerAs: 'vm'
         };

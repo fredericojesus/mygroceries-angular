@@ -8,7 +8,7 @@
     function siteContent() {
         return {
             restrict: 'EA',
-            templateUrl: 'site-content.html'
+            templateUrl: 'app/views/site-content.html'
         };
     }
 

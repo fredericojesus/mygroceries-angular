@@ -4,8 +4,7 @@
     angular.module('app', [
         'app.filters',
         'ngMaterial',
-        'ngMdIcons',
-        'templates'
+        'ngMdIcons'
     ]);
 
     _.mixin(s.exports());
