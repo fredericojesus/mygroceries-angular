@@ -8,9 +8,8 @@
     function shoppingList() {
         return {
             restrict: 'EA',
-            templateUrl: 'app/views/shopping-list.html',
-            controller: 'ShoppingListController',
-            controllerAs: 'vm'
+            templateUrl: 'app/shopping-list/shopping-list.html',
+            controller: 'ShoppingListController'
         };
     }
 

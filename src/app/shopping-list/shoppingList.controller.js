@@ -6,41 +6,40 @@
         .controller('ShoppingListController', ShoppingListController);
 
     function ShoppingListController($scope, $mdToast) {
-        var vm = this;
-        vm.items = ['bread', 'apples', 'milk', 'cheese', 'eggs', 'beef', 'orange juice'];
-        vm.itemsChecked = [];
-        vm.newItem = '';
+        $scope.items = ['bread', 'apples', 'milk', 'cheese', 'eggs', 'beef', 'orange juice'];
+        $scope.itemsChecked = [];
+        $scope.newItem = '';
 
-        vm.addItem = addItem;
-        vm.checkItem = checkItem;
-        vm.uncheckItem = uncheckItem;
-        vm.exists = exists;
-        vm.removeItem = removeItem;
+        $scope.addItem = addItem;
+        $scope.checkItem = checkItem;
+        $scope.uncheckItem = uncheckItem;
+        $scope.exists = exists;
+        $scope.removeItem = removeItem;
 
         function addItem() {
-            if (_.isBlank(vm.newItem)) {
+            if (_.isBlank($scope.newItem)) {
                 return;
             }
 
-            if (vm.items.indexOf(vm.newItem.toLowerCase()) > -1 || vm.itemsChecked.indexOf(vm.newItem.toLowerCase()) > -1) {
+            if ($scope.items.indexOf($scope.newItem.toLowerCase()) > -1 || $scope.itemsChecked.indexOf($scope.newItem.toLowerCase()) > -1) {
                 $mdToast.show({
                     template: '<md-toast style="left: 50%; top: 20%;"><span flex>You already have that item on your list!</span></md-toast>',
                     hideDelay: 3000
                 });
             } else {
-                vm.items.unshift(vm.newItem.toLowerCase());
-                vm.newItem = '';
+                $scope.items.unshift($scope.newItem.toLowerCase());
+                $scope.newItem = '';
             }
         }
 
         function checkItem(item) {
-            vm.removeItem(item, vm.items);
-            vm.itemsChecked.unshift(item);
+            $scope.removeItem(item, $scope.items);
+            $scope.itemsChecked.unshift(item);
         }
 
         function uncheckItem(item) {
-            vm.removeItem(item, vm.itemsChecked);
-            vm.items.unshift(item);
+            $scope.removeItem(item, $scope.itemsChecked);
+            $scope.items.unshift(item);
         }
 
         function exists(item, list) {
