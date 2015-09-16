@@ -8,7 +8,7 @@
 <div layout-align="center" layout="row" style="margin-bottom: 20px">
     <md-card flex="80" ng-if="items.length || itemsChecked.length">
         <md-card-content>
-            <md-list style="padding: 0">
+            <md-list>
                 <md-list-item class="list-item" ng-repeat="item in items">
                     <md-checkbox class="md-primary" ng-checked="false" ng-click="checkItem(item)"></md-checkbox>
                     <p style="margin-top: 2px">{{ item | titleize }}</p>
@@ -16,7 +16,7 @@
                 </md-list-item>
             </md-list>
             <md-divider ng-if="items.length && itemsChecked.length"></md-divider>
-            <md-list>
+            <md-list ng-if="itemsChecked.length">
                 <md-list-item class="list-item" ng-repeat="itemChecked in itemsChecked">
                     <md-checkbox class="md-primary" ng-checked="true" ng-click="uncheckItem(itemChecked)"></md-checkbox>
                     <p style="margin-top: 2px">{{ itemChecked | titleize }}</p>
