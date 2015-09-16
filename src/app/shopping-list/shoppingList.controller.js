@@ -5,6 +5,7 @@
         .module('app')
         .controller('ShoppingListController', ShoppingListController);
 
+    /*@ngInject*/
     function ShoppingListController($scope, $mdToast) {
         $scope.items = ['bread', 'apples', 'milk', 'cheese', 'eggs', 'beef', 'orange juice'];
         $scope.itemsChecked = [];
