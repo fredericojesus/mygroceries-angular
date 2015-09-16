@@ -11,10 +11,10 @@
         $scope.newItem = '';
 
         $scope.addItem = addItem;
+        $scope.removeItem = removeItem;
         $scope.checkItem = checkItem;
         $scope.uncheckItem = uncheckItem;
         $scope.exists = exists;
-        $scope.removeItem = removeItem;
 
         function addItem() {
             if (_.isBlank($scope.newItem)) {
@@ -32,6 +32,11 @@
             }
         }
 
+        function removeItem(item, list) {
+            var index = list.indexOf(item);
+            list.splice(index, 1);
+        }
+
         function checkItem(item) {
             $scope.removeItem(item, $scope.items);
             $scope.itemsChecked.unshift(item);
@@ -45,11 +50,6 @@
         function exists(item, list) {
             var index = list.indexOf(item);
             return index > -1;
-        }
-
-        function removeItem(item, list) {
-            var index = list.indexOf(item);
-            list.splice(index, 1);
         }
     }
 
