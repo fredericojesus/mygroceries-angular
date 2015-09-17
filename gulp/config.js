@@ -15,7 +15,7 @@ module.exports = function () {
             './gulp/**/*.js'
         ],
         client: client,
-        css: temp + '*.css',
+        css: temp + '**/*.css',
         dist: dist,
         htmltemplates: clientApp + '**/*.html',
         index: 'index.html',
@@ -26,14 +26,15 @@ module.exports = function () {
             '!' + clientApp + '**/*.spec.js'
         ],
         root: './',
-        stylus: client + 'styles/**/*.styl',
+        stylus: client + '**/*.styl',
         temp: temp,
 
         //files to watch in dev environment
         watchFiles: [
             clientApp + '**/*.js',
-            client + 'styles/**/*.styl',
             clientApp + '**/*.html',
+            clientApp + '**/*.styl',
+            client + '**/*.styl'
         ],
 
         //optimized files

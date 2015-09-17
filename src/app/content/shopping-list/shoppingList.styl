@@ -1,4 +1,22 @@
-.list-item.ng-enter
+@import '../../../styles/colors'
+
+.shopping-list-form
+  padding 30px 0px 25px 0px
+  md-input-container
+    padding 2px 2px 6px
+
+.shopping-list-card-wrapper
+    margin-bottom 20px
+
+.shopping-list-item
+    cursor pointer
+    span
+        margin-top 2px
+
+md-list-item:hover
+    background light-grey
+
+.shopping-list-item.ng-enter
     -webkit-transition 0.5s linear all
     -moz-transition 0.5s linear all
     -o-transition 0.5s linear all
@@ -7,12 +25,12 @@
     opacity 0
     left -50%
 
-.list-item.ng-enter.ng-enter-active
+.shopping-list-item.ng-enter.ng-enter-active
     max-height 90px
     opacity 1
     left 0
 
-.list-item.ng-leave
+.shopping-list-item.ng-leave
   -webkit-animation 0.5s list_animation
   -moz-animation 0.5s list_animation
   -o-animation 0.5s list_animation

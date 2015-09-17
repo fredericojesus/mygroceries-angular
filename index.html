@@ -13,11 +13,13 @@
 
     <!-- build:css styles/lib.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:css styles/app.css -->
     <!-- inject:css -->
+    <link rel="stylesheet" href="/.tmp/style.css">
     <!-- endinject -->
     <!-- endbuild -->
 
@@ -27,15 +29,31 @@
         <sidenav layout="row"></sidenav>
 
         <!-- Will be ui-view -->
-        <site-content layout-fill layout="column"></site-content>
+        <app-content layout-fill layout="column"></app-content>
 
         <!-- build:js js/lib.js -->
         <!-- bower:js -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.js"></script>
+        <script src="bower_components/angular-material/angular-material.js"></script>
+        <script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+        <script src="bower_components/lodash/lodash.js"></script>
+        <script src="bower_components/underscore.string/dist/underscore.string.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
         <!-- build:js js/app.js -->
         <!-- inject:js -->
+        <script src="/src/app/app.module.js"></script>
+        <script src="/src/app/filters.module.js"></script>
+        <script src="/src/app/app.config.js"></script>
+        <script src="/src/app/content/app-content.directive.js"></script>
+        <script src="/src/app/sidenav/sidenav.directive.js"></script>
+        <script src="/src/app/content/header/app-header.directive.js"></script>
+        <script src="/src/app/content/shopping-list/shopping-list.directive.js"></script>
+        <script src="/src/app/content/shopping-list/shoppingList.controller.js"></script>
+        <script src="/.tmp/templates.js"></script>
         <!-- endinject -->
         <!-- endbuild -->
 
