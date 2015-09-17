@@ -8,6 +8,18 @@ var del = require('del');
 var $ = require('gulp-load-plugins')({lazy: true});
 
 /**
+ * Remove all files from the dist and temp folders
+ * @param {Function} done - callback when complete
+ */
+gulp.task('clean', function(done) {
+    var delconfig = [].concat(config.dist, config.temp);
+    log.message('Cleaning: ' + $.util.colors.blue(delconfig));
+    del(delconfig).then(function() {
+        done();
+    });
+});
+
+/**
  * Remove all files from the dist folder
  * @param {Function} done - callback when complete
  */
