@@ -19,6 +19,7 @@ module.exports = function () {
         dist: dist,
         htmltemplates: clientApp + '**/*.html',
         index: 'index.html',
+        images: client + 'images/**/*.*',
         js: [
             clientApp + '**/*.module.js',
             clientApp + '**/*.js',

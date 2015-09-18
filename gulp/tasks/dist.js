@@ -10,7 +10,7 @@ var browserSync = require('browser-sync');
 /**
  * serve the build environment
  */
-gulp.task('dist', ['optimize'], function() {
+gulp.task('dist', ['optimize', 'images'], function() {
     serve(false /*isDev*/);
 
     /**
@@ -25,16 +25,16 @@ gulp.task('dist', ['optimize'], function() {
 /**
  * Build everything to distribution
  */
-gulp.task('build-dist', ['optimize'], function() {
+gulp.task('build-dist', ['optimize', 'images'], function() {
     log.message('Building everything to distribution');
 
     var msg = {
         title: 'gulp build-dist',
-        subtitle: 'Running `gulp serve-build`',
+        // subtitle: 'Running `gulp serve-build`',
         message: 'Deployed to the dist folder'
     };
 
-    log(msg);
+    log.message(msg);
     notify(msg);
 
 });

@@ -44,6 +44,14 @@ gulp.task('clean-code', function(done) {
 });
 
 /**
+ * Remove all images from the dist folder
+ * @param {Function} done - callback when complete
+ */
+gulp.task('clean-images', function(done) {
+    clean(config.dist + 'images/**/*.*', done);
+});
+
+/**
  * Delete all files in a given path
  * @param {Array} path - array of paths to delete
  * @param {Function} done - callback when complete
