@@ -6,11 +6,22 @@ var log = require('../util/log');
 var notify = require('../util/notify');
 var serve = require('../util/serve');
 var browserSync = require('browser-sync');
+var runSequence = require('run-sequence');
+
+var $ = require('gulp-load-plugins')({lazy: true});
 
 /**
- * serve the build environment
+ * serve and watch the build environment
  */
-gulp.task('dist', ['optimize', 'images'], function() {
+gulp.task('dist', function(done) {
+
+    done = done || function() {};
+    global.isDist = true;
+
+    runSequence('clean-dist', ['optimize', 'images'], 'watch-dist', done);
+});
+
+gulp.task('watch-dist', function () {
     serve(false /*isDev*/);
 
     /**
@@ -18,23 +29,35 @@ gulp.task('dist', ['optimize', 'images'], function() {
      * index is being injected in case of new files are added or deleted
      * (it would be an endless loop)
      */
-    gulp.watch(config.watchFiles, ['optimize', browserSync.reload])
-        .on('change', log.fileEvent);
+    $.watch(config.watchFiles, function() {
+        runSequence('clean-dist-code','optimize', browserSync.reload);
+        // gulp.start('lint', 'inject', browserSync.reload);
+    })
+    .on('change', log.fileEvent);
+
+    // gulp.watch(config.watchFiles, ['optimize', browserSync.reload])
+    //     .on('change', log.fileEvent);
 });
 
 /**
  * Build everything to distribution
  */
-gulp.task('build-dist', ['optimize', 'images'], function() {
+gulp.task('build-dist', function(done) {
     log.message('Building everything to distribution');
 
-    var msg = {
-        title: 'gulp build-dist',
-        // subtitle: 'Running `gulp serve-build`',
-        message: 'Deployed to the dist folder'
-    };
+    done = done || function() {};
+    global.isDist = true;
 
-    log.message(msg);
-    notify(msg);
+    runSequence('clean-dist', ['optimize', 'images'], 'watch-dist', endBuild, done);
 
+    function endBuild() {
+        var msg = {
+            title: 'gulp build-dist',
+            // subtitle: 'Running `gulp serve-build`',
+            message: 'Deployed to the dist folder'
+        };
+
+        log.message(msg);
+        notify(msg);
+    }
 });

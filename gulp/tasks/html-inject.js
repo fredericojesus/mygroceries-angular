@@ -26,7 +26,7 @@ gulp.task('inject-bower', function() {
  * Inject app dependencies dependencies into the index.html
  * @return {Stream}
  */
-gulp.task('inject', ['inject-bower', 'styles', 'templatecache'], function() {
+gulp.task('inject', ['inject-bower', 'styles', 'templatecache', 'replace-svg-path'], function() {
     log.message('Injecting our app js and css dependencies into the index.html');
 
     return gulp
@@ -34,4 +34,16 @@ gulp.task('inject', ['inject-bower', 'styles', 'templatecache'], function() {
         .pipe($.inject(gulp.src(config.css)))
         .pipe($.inject(gulp.src(config.js)))
         .pipe(gulp.dest(config.root));
+});
+
+/**
+ * Replaces the material design icons path
+ * because it defers in dev and dist environments
+ * @return {Stream}
+ */
+gulp.task('replace-svg-path', function() {
+    return gulp
+        .src(config.appConfigJs)
+        .pipe($.if(global.isDist, $.replace('/src/images', '/images')))
+        .pipe(gulp.dest(config.temp));
 });

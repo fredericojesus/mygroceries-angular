@@ -11,7 +11,7 @@ var $ = require('gulp-load-plugins')({lazy: true});
  * Compress images
  * @return {Stream}
  */
-gulp.task('images', ['clean-images'], function() {
+gulp.task('images', function() {
     log.message('Compressing and copying images');
 
     return gulp

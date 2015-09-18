@@ -11,7 +11,7 @@ var $ = require('gulp-load-plugins')({lazy: true});
  * Create $templateCache from the html templates
  * @return {Stream}
  */
-gulp.task('templatecache', ['clean-code'], function() {
+gulp.task('templatecache', function() {
     log.message('Creating an AngularJS $templateCache');
 
     return gulp

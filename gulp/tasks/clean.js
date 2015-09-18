@@ -20,11 +20,43 @@ gulp.task('clean', function(done) {
 });
 
 /**
+ * Remove all files from the temp folder
+ * @param {Function} done - callback when complete
+ */
+gulp.task('clean-temp', function(done) {
+    clean(config.temp, done);
+});
+
+/**
  * Remove all files from the dist folder
  * @param {Function} done - callback when complete
  */
 gulp.task('clean-dist', function(done) {
     clean(config.dist, done);
+});
+
+/**
+ * Remove all js and css from the temp folder
+ * @param  {Function} done - callback when complete
+ */
+gulp.task('clean-temp-code', function(done) {
+    var files = [].concat(
+        config.temp + '**/*.js',
+        config.temp + '**/*.css'
+    );
+    clean(files, done);
+});
+
+/**
+ * Remove all js and css from the dist folders
+ * @param  {Function} done - callback when complete
+ */
+gulp.task('clean-dist-code', function(done) {
+    var files = [].concat(
+        config.dist + 'js/**/*.js',
+        config.dist + 'styles/**/*.css'
+    );
+    clean(files, done);
 });
 
 /**
@@ -39,7 +71,7 @@ gulp.task('clean-styles', function(done) {
  * Remove all js from the temp folder
  * @param {Function} done - callback when complete
  */
-gulp.task('clean-code', function(done) {
+gulp.task('clean-js', function(done) {
     clean(config.temp + '**/*.js', done);
 });
 

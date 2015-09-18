@@ -23,7 +23,8 @@ module.exports = function () {
         js: [
             clientApp + '**/*.module.js',
             clientApp + '**/*.js',
-            temp + 'templates.js',
+            temp + '*.js',
+            '!' + clientApp + 'app.config.js', //we are injecting this file from the temp folder
             '!' + clientApp + '**/*.spec.js'
         ],
         root: './',
@@ -53,6 +54,9 @@ module.exports = function () {
                 standAlone: false
             }
         },
+
+        //replace svg path
+        appConfigJs: clientApp + 'app.config.js',
 
         //bower and npm locations
         bower: {

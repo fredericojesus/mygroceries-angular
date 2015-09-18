@@ -19,6 +19,6 @@ gulp.task('lint', function() {
         .pipe($.if(args.verbose, $.print()))
         .pipe($.jshint())
         .pipe($.jshint.reporter('jshint-stylish', {verbose: true}))
-        // .pipe($.jshint.reporter('fail'))
+        // .pipe($.jshint.reporter('fail')) //this stops the watch
         .pipe($.jscs());
 });

@@ -12,7 +12,7 @@ var $ = require('gulp-load-plugins')({lazy: true});
  * Compile stylus to css
  * @return {Stream}
  */
-gulp.task('styles', ['clean-styles'], function() {
+gulp.task('styles', function() {
     log.message('Compiling Stylus --> CSS');
 
     return gulp

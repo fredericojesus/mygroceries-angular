@@ -12,7 +12,7 @@ var $ = require('gulp-load-plugins')({lazy: true});
  * and inject them into the new index.html
  * @return {Stream}
  */
-gulp.task('optimize', ['inject', 'lint', 'clean-dist'], function() {
+gulp.task('optimize', ['inject', 'lint'], function() {
     log.message('Optimizing the js, css, and html');
 
     var assets = $.useref.assets({searchPath: './'});
