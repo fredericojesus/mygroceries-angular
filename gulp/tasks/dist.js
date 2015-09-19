@@ -7,6 +7,7 @@ var notify = require('../util/notify');
 var serve = require('../util/serve');
 var browserSync = require('browser-sync');
 var runSequence = require('run-sequence');
+var q = require('q');
 
 var $ = require('gulp-load-plugins')({lazy: true});
 
@@ -42,18 +43,17 @@ gulp.task('watch-dist', function () {
 /**
  * Build everything to distribution
  */
-gulp.task('build-dist', function(done) {
+gulp.task('build-dist', function() {
     log.message('Building everything to distribution');
 
-    done = done || function() {};
     global.isDist = true;
 
-    runSequence('clean-dist', ['optimize', 'images'], 'watch-dist', endBuild, done);
+    runSequence('clean-dist', ['optimize', 'images'], endBuild);
 
     function endBuild() {
         var msg = {
             title: 'gulp build-dist',
-            // subtitle: 'Running `gulp serve-build`',
+            // subtitle: 'Running `dist`',
             message: 'Deployed to the dist folder'
         };
 
