@@ -7,7 +7,6 @@ var notify = require('../util/notify');
 var serve = require('../util/serve');
 var browserSync = require('browser-sync');
 var runSequence = require('run-sequence');
-var q = require('q');
 
 var $ = require('gulp-load-plugins')({lazy: true});
 

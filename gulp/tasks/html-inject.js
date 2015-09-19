@@ -44,6 +44,6 @@ gulp.task('inject', ['inject-bower', 'styles', 'templatecache', 'replace-svg-pat
 gulp.task('replace-svg-path', function() {
     return gulp
         .src(config.appConfigJs)
-        .pipe($.if(global.isDist, $.replace('/src/images', '/images')))
+        .pipe($.if(global.isDist, $.replace('/src/images', 'images')))
         .pipe(gulp.dest(config.temp));
 });
