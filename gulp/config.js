@@ -35,8 +35,8 @@ module.exports = function () {
         watchFiles: [
             clientApp + '**/*.js',
             clientApp + '**/*.html',
-            clientApp + '**/*.styl',
-            client + '**/*.styl'
+            client + '**/*.styl',
+            clientApp + '**/*.styl'
         ],
 
         //optimized files
