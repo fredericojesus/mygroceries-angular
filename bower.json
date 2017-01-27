@@ -18,6 +18,7 @@
     "angular-material": "~0.10.1",
     "angular-material-icons": "~0.5.0",
     "lodash": "~3.10.1",
-    "underscore.string": "~3.2.2"
+    "underscore.string": "~3.2.2",
+    "angular-ui-router": "ui-router#^0.4.2"
   }
 }

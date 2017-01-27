@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-    <!-- <base href="/"> -->
+    <base href="/"> 
 
     <!-- build:css styles/lib.css -->
     <!-- bower:css -->
@@ -40,6 +40,7 @@
         <script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
         <script src="bower_components/lodash/lodash.js"></script>
         <script src="bower_components/underscore.string/dist/underscore.string.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -47,12 +48,13 @@
         <!-- inject:js -->
         <script src="/src/app/app.module.js"></script>
         <script src="/src/app/filters.module.js"></script>
-        <script src="/src/app/content/app-content.directive.js"></script>
+        <script src="/src/app/app.routes.js"></script>
         <script src="/src/app/sidenav/sidenav.directive.js"></script>
+        <script src="/src/app/content/app-content.directive.js"></script>
+        <script src="/src/app/content/shopping-list/shoppingList.controller.js"></script>
+        <script src="/src/app/content/items/items.controller.js"></script>
         <script src="/src/app/content/header/app-header.controller.js"></script>
         <script src="/src/app/content/header/app-header.directive.js"></script>
-        <script src="/src/app/content/shopping-list/shopping-list.directive.js"></script>
-        <script src="/src/app/content/shopping-list/shoppingList.controller.js"></script>
         <script src="/.tmp/app.config.js"></script>
         <script src="/.tmp/templates.js"></script>
         <!-- endinject -->

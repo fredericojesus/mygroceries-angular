@@ -1,6 +1,6 @@
 <app-header></app-header>
 
 <!-- In order to don't break the scroll behavior md-content have to be outside the directive -->
-<md-content class="app-content">
-    <shopping-list></shopping-list>
+<md-content class="app-content" layout-fill>
+    <div ui-view layout="column"></div>
 <md-content>

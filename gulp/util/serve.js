@@ -2,6 +2,7 @@
 
 var log = require('../util/log');
 var browserSync = require('browser-sync');
+var modRewrite  = require('connect-modrewrite');
 
 /**
  * serve the code
@@ -24,7 +25,12 @@ module.exports = function(isDev) {
     browserSync({
         port: '3000',
         server: {
-            baseDir: baseDir
+            baseDir: baseDir,
+            middleware: [
+                modRewrite([
+                    '!\\.\\w+$ /index.html [L]'
+                ])
+            ]
         }
     });
 

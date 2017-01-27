@@ -3,6 +3,7 @@
 
     angular.module('app', [
         'app.filters',
+        'ui.router',
         'ngMaterial',
         'ngMdIcons'
     ]);
